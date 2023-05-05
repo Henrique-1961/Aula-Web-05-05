@@ -7,6 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h1>
+    <canvas width="500" height="500" id="canvas"></canvas>
+    <script>
+        let canvas = document.querySelector("canvas");
+        let ctx = canvas.getContext("2d");
+
+        const obj = {
+            draw() {
+                ctx.fillStyle = "white";
+                ctx.fillRect(100, 100, 100, 100);
+            }
+        }
+
+        function loop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            obj.draw();
+            requestAnimationFrame(loop);
+        }
+
+        loop();
+    </script>
 </body>
 </html>
